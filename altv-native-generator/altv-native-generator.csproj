@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>AltV.Native.Generator</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Authors>drake</Authors>
+    <Product>alt:V Native Generator</Product>
+    <Description>A small program to extract "ysc" scripts, gather native information.</Description>
+    <PackageProjectUrl>https://github.com/altmp/altv</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommandLineParser" Version="2.9.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="RageKit" Version="1.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\Keys.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Keys.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Keys.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Keys.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resources\gtav_aes_key.dat">
+      <CustomToolNamespace>Keys</CustomToolNamespace>
+    </None>
+    <None Update="Resources\gtav_hash_lut.dat">
+      <CustomToolNamespace>Keys</CustomToolNamespace>
+    </None>
+    <None Update="Resources\gtav_ng_decrypt_tables.dat">
+      <CustomToolNamespace>Keys</CustomToolNamespace>
+    </None>
+    <None Update="Resources\gtav_ng_encrypt_luts.dat">
+      <CustomToolNamespace>Keys</CustomToolNamespace>
+    </None>
+    <None Update="Resources\gtav_ng_encrypt_tables.dat">
+      <CustomToolNamespace>Keys</CustomToolNamespace>
+    </None>
+    <None Update="Resources\gtav_ng_key.dat">
+      <CustomToolNamespace>Keys</CustomToolNamespace>
+    </None>
+  </ItemGroup>
+
+</Project>
